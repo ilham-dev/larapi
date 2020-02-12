@@ -12,6 +12,7 @@
         "pnlinh/laravel-infobip-sms": "^1.0",
         "laravelista/lumen-vendor-publish": "^2.1",
         "proshore/entrust-lumen": "1.0.2",
+        "laravel/socialite": "^4.3",
         "dingo/api": "^2"
     },
     "require-dev": {

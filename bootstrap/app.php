@@ -21,7 +21,10 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-$app->withFacades();
+$app->withFacades(
+    true,
+    [Laravel\Socialite\Facades\Socialite::class => 'Socialite']
+);
 
 $app->withEloquent();
 
@@ -47,9 +50,13 @@ $app->singleton(
 );
 
 $app->configure('auth');
+$app->configure('services');
 
 // Register Service providers for Entrust
 $app->register(Zizaco\Entrust\EntrustServiceProvider::class);
+
+//Register Socialite
+$app->register( \Laravel\Socialite\SocialiteServiceProvider::class);
 
 $app->withFacades();
 

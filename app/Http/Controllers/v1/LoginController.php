@@ -11,9 +11,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->stateless()->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('github')->stateless()->user();
+
+        // $user->token;
+        dd($user);
+    }
 
     public function forUser(){
         $data = v_users::usersdetail(Auth::user()->id);

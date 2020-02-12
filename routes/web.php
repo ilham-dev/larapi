@@ -18,6 +18,11 @@ $api->version('v1', function ($api) {
         return $api->app->version();
     });
 
+    // $api->group(['middleware' => 'web'], function ($api) {
+        $api->get('login/github', 'App\Http\Controllers\v1\LoginController@redirectToProvider');
+        $api->get('login/github/callback', 'App\Http\Controllers\v1\LoginController@handleProviderCallback');
+    // });
+
     //===================================== User ========================================================//
     $api->group(['prefix' => 'user', 'middleware' => 'auth:api'], function ($api) {
         $api->get('info', 'App\Http\Controllers\v1\UserController@forUser');
