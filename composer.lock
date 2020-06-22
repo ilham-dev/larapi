@@ -4229,11 +4229,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2020-01-31T09:11:17+00:00"
-=======
-            "time": "2019-11-28T13:33:56+00:00"
->>>>>>> 8ff5b47c8d0a1823277d6ef97fe87a2aa6b84a12
         },
         {
             "name": "symfony/http-kernel",
@@ -4327,7 +4323,6 @@
         },
         {
             "name": "symfony/mime",
-<<<<<<< HEAD
             "version": "v4.4.4",
             "source": {
                 "type": "git",
@@ -4338,18 +4333,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/mime/zipball/225034620ecd4b34fd826e9983d85e2b7a359094",
                 "reference": "225034620ecd4b34fd826e9983d85e2b7a359094",
-=======
-            "version": "v4.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/mime.git",
-                "reference": "010cc488e56cafe5f7494dea70aea93100c234df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/010cc488e56cafe5f7494dea70aea93100c234df",
-                "reference": "010cc488e56cafe5f7494dea70aea93100c234df",
->>>>>>> 8ff5b47c8d0a1823277d6ef97fe87a2aa6b84a12
                 "shasum": ""
             },
             "require": {
@@ -4398,11 +4381,8 @@
                 "mime",
                 "mime-type"
             ],
-<<<<<<< HEAD
             "time": "2020-01-04T13:00:46+00:00"
-=======
-            "time": "2019-11-30T08:27:26+00:00"
->>>>>>> 8ff5b47c8d0a1823277d6ef97fe87a2aa6b84a12
+
         },
         {
             "name": "symfony/polyfill-ctype",
