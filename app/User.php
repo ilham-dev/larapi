@@ -11,7 +11,7 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
-    protected $table = "x_users";
+    protected $table = "users";
     use HasApiTokens, Authenticatable, Authorizable;
 
     /**
@@ -27,4 +27,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
+    public function findForPassport($identifier) {
+        return $this->orWhere('email', $identifier)->orWhere('telephone', $identifier)->first();
+    }
 }

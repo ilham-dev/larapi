@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
+use Psr\Http\Message\ServerRequestInterface;
+use Zend\Diactoros\Response as Psr7Response;
 
-class LoginController extends Controller
+class LoginController extends \Laravel\Passport\Http\Controllers\AccessTokenController
 {
 
     public function redirectToProvider()
@@ -99,5 +101,25 @@ class LoginController extends Controller
         DB::commit();
         return JsonStatus::message(200,"Berhasil Registrasi");
     }
+
+    public function attemptLogin(ServerRequestInterface $request)
+    {
+//        LumenPassport::tokensExpireIn(Carbon::now('Asia/Makassar')->addHours(2), 8);
+
+        $data = $this->withErrorHandling(function () use ($request) {
+            $data = $this->convertResponse(
+                $this->server->respondToAccessTokenRequest($request, new Psr7Response)
+            );
+            $data = json_decode($data->content());
+            return JsonStatus::messagewithData(200,"Berhasil login",$data);
+        });
+        if ($data->getStatusCode() == 401){
+            $data = json_decode($data->content());
+            return JsonStatus::messagewithData(400,"Username atau Passowrd salah",$data);
+        }else{
+            return $data;
+        }
+    }
+
 
 }

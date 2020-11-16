@@ -32,4 +32,5 @@ $api->version('v1', function ($api) {
     //===================================== End User ====================================================//
 
     $api->post('register', 'App\Http\Controllers\v1\LoginController@register');
+    $api->post('/login', 'App\Http\Controllers\v1\LoginController@attemptLogin');
 });
